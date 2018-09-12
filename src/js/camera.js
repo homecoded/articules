@@ -168,7 +168,7 @@ setInterval(
     function () {
         var canvas = takeSnapshot();
         Filter.applyFilters(
-            ['grid'],
+            ['grid', 'mirror'],
             canvas
         );
     },
