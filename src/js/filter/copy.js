@@ -1,4 +1,4 @@
-Filter.MirrorFilter = (function () {
+Filter.CopyFilter = (function () {
 
     function apply(target, source, doneCallback) {
         var cx = target.getContext("2d");
@@ -6,11 +6,8 @@ Filter.MirrorFilter = (function () {
         target.width = source.width;
         target.height = source.height;
 
-        cx.save();
-        cx.scale(-1, 1);
-        cx.drawImage(source, 0 - target.width, 0);
-        cx.restore();
-        doneCallback();
+        cx.drawImage(source, 0, 0);
+        doneCallback()
     }
 
     return {
@@ -18,4 +15,4 @@ Filter.MirrorFilter = (function () {
     }
 })();
 
-Filter.register('mirror', Filter.MirrorFilter);
+Filter.register('copy', Filter.CopyFilter);

@@ -122,7 +122,7 @@ function showVideo(){
 function takeSnapshot(){
     // Here we're using a trick that involves a hidden canvas element.
 
-    var hidden_canvas = document.querySelector('canvas'),
+    var hidden_canvas = document.querySelector('#capture'),
         context = hidden_canvas.getContext('2d');
 
     var width = video.videoWidth,
@@ -164,11 +164,14 @@ function hideUI(){
     error_message.classList.remove("visible");
 }
 
+var target = document.querySelector('#stage');
+
 setInterval(
     function () {
         var canvas = takeSnapshot();
         Filter.applyFilters(
-            ['grid', 'mirror'],
+            ['copy', 'grid'],
+            target,
             canvas
         );
     },

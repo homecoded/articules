@@ -29,6 +29,10 @@ html{
     width: 100%;
 }
 
+#capture {
+    display: none;
+}
+
 .app #start-camera{
     display: none;
     border-radius: 3px;
