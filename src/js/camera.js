@@ -4,9 +4,11 @@ var video = document.querySelector('#camera-stream'),
     start_camera = document.querySelector('#start-camera'),
     controls = document.querySelector('.controls'),
     take_photo_btn = document.querySelector('#take-photo'),
-    delete_photo_btn = document.querySelector('#delete-photo'),
     download_photo_btn = document.querySelector('#download-photo'),
-    error_message = document.querySelector('#error-message');
+    error_message = document.querySelector('#error-message'),
+    isStreamRunning = true,
+    target = document.getElementById('stage');
+
 
 
 // The getUserMedia interface is used for handling camera input.
@@ -72,42 +74,20 @@ take_photo_btn.addEventListener("click", function(e){
 
     e.preventDefault();
 
-    var snap = takeSnapshot();
 
-    // Show image.
-    image.setAttribute('src', snap);
-    image.classList.add("visible");
+    isStreamRunning = !isStreamRunning;
 
-    // Enable delete and save buttons
-    delete_photo_btn.classList.remove("disabled");
-    download_photo_btn.classList.remove("disabled");
 
-    // Set the href attribute of the download button to the snap url.
-    download_photo_btn.href = snap;
 
-    // Pause video playback of stream.
-    video.pause();
+    if (!isStreamRunning) {
+        // Set the href attribute of the download button to the snap url.
+        download_photo_btn.href = target.toDataURL();
+        download_photo_btn.classList.remove('disabled');
+    } else {
+        download_photo_btn.classList.add('disabled');
+    }
 
 });
-
-
-delete_photo_btn.addEventListener("click", function(e){
-
-    e.preventDefault();
-
-    // Hide image.
-    image.setAttribute('src', "");
-    image.classList.remove("visible");
-
-    // Disable delete and save buttons
-    delete_photo_btn.classList.add("disabled");
-    download_photo_btn.classList.add("disabled");
-
-    // Resume playback of stream.
-    video.play();
-
-});
-
 
 
 function showVideo(){
@@ -164,15 +144,17 @@ function hideUI(){
     error_message.classList.remove("visible");
 }
 
-var target = document.querySelector('#stage');
 
 setInterval(
     function () {
-        var canvas = takeSnapshot();
-        Filter.applyFilters(
-            ['copy', 'grid'],
-            target,
-            canvas
-        );
+        if (isStreamRunning) {
+            var canvas = takeSnapshot();
+            Filter.applyFilters(
+                ['mirror', 'grid', 'shapes'],
+                target,
+                canvas
+            );
+
+        }
     },
 100);
