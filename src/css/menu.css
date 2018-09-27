@@ -1,0 +1,66 @@
+header {
+    background: #fff;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid #111111;
+    z-index: 100;
+}
+
+#logo {
+    float: right;
+    background: url(../img/logo.png) no-repeat center;
+    display: block;
+}
+
+#menu-icon {
+    color: #111;
+    font-size: 50px;
+    line-height: 30px;
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: inline-block;
+    float: left;
+    padding: 10px
+}
+
+#menu-icon {
+    display: inline-block;
+}
+
+nav ul {
+    width: 100%;
+    opacity: 0;
+    overflow: hidden;
+    max-height: 0;
+}
+
+nav ul, nav:active ul {
+    position: absolute;
+    padding: 20px;
+    background: #fff;
+    left: 0;
+    
+    -webkit-transition: opacity 1s, max-height 1s; /* For Safari 3.1 to 6.0 */
+    transition: opacity 1s, max-height 1s;
+}
+
+nav li {
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+}
+
+nav.open ul {
+    display: block;
+    opacity: 1;
+    height: auto;
+    max-height: 500px;
+}

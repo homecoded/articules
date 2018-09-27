@@ -4,10 +4,57 @@
     <meta charset="utf-8">
     <title>articules</title>
     <meta name="description" content="Progressive Web App for Artists">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/camera.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
+
+<header>
+    <nav id="nav">
+        <a href="#" id="menu-icon">≡</a>
+        <ul>
+            <li><h4>Image Source</h4></li>
+            <li>
+                <fieldset>
+                    <input type="radio" id="video-source" name="source" value="Video">
+                    <label for="video-source">Video from Camera</label>
+
+                    <input type="radio" id="image-source" name="source" value="Image">
+                    <label for="image-source">Image from Device</label>
+                </fieldset>
+            </li>
+            <li><h4>Filters</h4></li>
+            <li>
+                <fieldset>
+                    <p>
+                        <input type="checkbox" id="filter-mirror" name="filter-mirror" value="mirror">
+                        <label for="filter-mirror">Mirror</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="filter-grayscale" name="filter-grayscale" value="grayscale">
+                        <label for="filter-grayscale">Grayscale</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="filter-grid" name="filter-grid" value="grid">
+                        <label for="filter-grayscale">Grid</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="filter-shapes" name="filter-shapes" value="grid">
+                        <label for="filter-shapes">Grid</label>
+                    </p>
+                </fieldset>
+            </li>
+        </ul>
+    </nav>
+    <a href="#" id="logo"></a>
+</header>
+
 <div class="container">
+
+    <div class="menu">
+
+    </div>
 
     <div class="app">
 
@@ -39,5 +86,6 @@
 <script type="text/javascript" src="js/filter/shapes.js"></script>
 <script type="text/javascript" src="js/filter/grayscale.js"></script>
 <script type="text/javascript" src="js/lib/color-thief.js"></script>
+<script type="text/javascript" src="js/nav/nav.js"></script>
 </body>
 </html>
