@@ -12,42 +12,56 @@
 
 <header>
     <nav id="nav">
-        <a href="#" id="menu-icon">≡</a>
+        <a href="#" id="menu-icon"><i class="material-icons">menu</i> <span class="title-logo">Articules</span></a>
         <ul>
             <li><h4>Image Source</h4></li>
             <li>
                 <fieldset>
-                    <input type="radio" id="video-source" name="source" value="Video">
-                    <label for="video-source">Video from Camera</label>
-
-                    <input type="radio" id="image-source" name="source" value="Image">
-                    <label for="image-source">Image from Device</label>
+                    <p>
+                        <input type="radio" id="video-source" name="source" value="Video" checked="checked">
+                        <label for="video-source">Video from Camera</label>
+                    </p>
+                    <!--
+                    <p>
+                        <input type="radio" id="image-source" name="source" value="Image">
+                        <label for="image-source">Image from Device</label>
+                    </p>
+                    -->
                 </fieldset>
             </li>
             <li><h4>Filters</h4></li>
             <li>
-                <fieldset>
+                <fieldset id="filters">
                     <p>
-                        <input type="checkbox" id="filter-mirror" name="filter-mirror" value="mirror">
+                        <input class="filter-input" type="checkbox" id="filter-mirror" name="filter-mirror" value="mirror">
                         <label for="filter-mirror">Mirror</label>
                     </p>
                     <p>
-                        <input type="checkbox" id="filter-grayscale" name="filter-grayscale" value="grayscale">
+                        <input class="filter-input" type="checkbox" id="filter-grayscale" name="filter-grayscale" value="grayscale">
                         <label for="filter-grayscale">Grayscale</label>
                     </p>
                     <p>
-                        <input type="checkbox" id="filter-grid" name="filter-grid" value="grid">
-                        <label for="filter-grayscale">Grid</label>
+                        <input class="filter-input" type="checkbox" id="filter-grid" name="filter-grid" value="grid">
+                        <label for="filter-grid">Grid</label>
                     </p>
-                    <p>
-                        <input type="checkbox" id="filter-shapes" name="filter-shapes" value="grid">
-                        <label for="filter-shapes">Grid</label>
-                    </p>
+                    <fieldset id="filters_shapes">
+                        <p>
+                            <input class="filter-input" type="radio" id="filter-shapes_1" name="filter-shapes" value="shapes_1">
+                            <label for="filter-shapes_1">Simplify Shapes (light)</label>
+                        </p>
+                        <p>
+                            <input class="filter-input" type="radio" id="filter-shapes_2" name="filter-shapes" value="shapes_2">
+                            <label for="filter-shapes_2">Simplify Shapes (medium)</label>
+                        </p>
+                        <p>
+                            <input class="filter-input" type="radio" id="filter-shapes_3" name="filter-shapes" value="shapes_3">
+                            <label for="filter-shapes_3">Simplify Shapes (strong)</label>
+                        </p>
+                    </fieldset>
                 </fieldset>
             </li>
         </ul>
     </nav>
-    <a href="#" id="logo"></a>
 </header>
 
 <div class="container">
@@ -58,21 +72,24 @@
 
     <div class="app">
 
-        <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
         <video id="camera-stream"></video>
-        <img id="snap">
-
         <p id="error-message"></p>
-
         <div class="controls">
-            <a href="#" id="take-photo" title="Pause"><i class="material-icons">pause</i></a>
+            <a href="#" id="play" title="Play"><i class="material-icons">play_arrow</i></a>
+            <a href="#" id="pause" title="Pause"><i class="material-icons">pause</i></a>
             <a href="#" id="download-photo" download="articules_view.png" title="Save View" class="disabled"><i
                     class="material-icons">file_download</i></a>
         </div>
-
         <!-- Hidden canvas element. Used for taking snapshot of video. -->
         <canvas id="capture"></canvas>
         <canvas id="stage"></canvas>
+    </div>
+
+    <div class="info">
+        <p>
+            Hit "play" button to start. Select filters from sandwich menu on top. Filters are only applied when video
+            is paused.
+        </p>
     </div>
 </div>
 
@@ -87,5 +104,6 @@
 <script type="text/javascript" src="js/filter/grayscale.js"></script>
 <script type="text/javascript" src="js/lib/color-thief.js"></script>
 <script type="text/javascript" src="js/nav/nav.js"></script>
+<script type="text/javascript" src="js/controls.js"></script>
 </body>
 </html>

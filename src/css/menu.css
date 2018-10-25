@@ -1,24 +1,29 @@
 header {
     background: #fff;
     width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
     border-bottom: 2px solid #111111;
     z-index: 100;
+    position: relative;
 }
 
-#logo {
+.title-logo {
     float: right;
-    background: url(../img/logo.png) no-repeat center;
     display: block;
+    font-size: 4em;
+    padding: 0.3em;
+    text-transform:capitalize;
+    font-variant:small-caps;
+    font-weight: normal;
 }
 
 #menu-icon {
     color: #111;
-    font-size: 50px;
-    line-height: 30px;
-    padding: 20px;
+    padding: 1em;
+    display: block;
+}
+
+#menu-icon i {
+    font-size: 4em;
 }
 
 ul {
@@ -28,11 +33,8 @@ ul {
 li {
     display: inline-block;
     float: left;
-    padding: 10px
-}
-
-#menu-icon {
-    display: inline-block;
+    padding: 0.5em;
+    font-size: 3em;
 }
 
 nav ul {
@@ -42,19 +44,29 @@ nav ul {
     max-height: 0;
 }
 
+nav h4 {
+    padding-bottom: 0.1em;
+}
+
+nav ul fieldset {
+    padding-left: 0.5em;
+}
+
+nav ul fieldset label {
+    padding-left: 0.5em;
+}
+
 nav ul, nav:active ul {
-    position: absolute;
-    padding: 20px;
-    background: #fff;
+    background: rgba(255,255,255,0.8);
     left: 0;
     
-    -webkit-transition: opacity 1s, max-height 1s; /* For Safari 3.1 to 6.0 */
-    transition: opacity 1s, max-height 1s;
+    -webkit-transition: opacity .3s, max-height .3s; /* For Safari 3.1 to 6.0 */
+    transition: opacity .3s, max-height .3s;
 }
 
 nav li {
     width: 100%;
-    padding: 10px 0;
+    padding: 0.5em 1em;
     margin: 0;
 }
 
@@ -62,5 +74,5 @@ nav.open ul {
     display: block;
     opacity: 1;
     height: auto;
-    max-height: 500px;
+    max-height: 2000px;
 }

@@ -2,8 +2,11 @@ var Filter = (function () {
 
     var filters = {};
 
-    function register(name, filter) {
-        filters[name] = filter
+    function register(name, filter, options) {
+        filters[name] = {
+            filter: filter,
+            options: options
+        }
     }
 
     function applyFilters(names, taget_canvas, source_canvas) {
@@ -18,9 +21,10 @@ var Filter = (function () {
 
             var filter = filters[names[id]];
 
-            filter.apply(
+            filter['filter'].apply(
                 taget_canvas,
                 source_canvas,
+                filter['options'],
                 function () {
                     next(id +1)
                 }

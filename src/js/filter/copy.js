@@ -1,6 +1,6 @@
 Filter.CopyFilter = (function () {
 
-    function apply(target, source, doneCallback) {
+    function apply(target, source, options, doneCallback) {
         var cx = target.getContext("2d");
 
         target.width = source.width;

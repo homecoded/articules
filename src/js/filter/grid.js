@@ -1,6 +1,6 @@
 Filter.GridFilter = (function () {
 
-    function apply(target, source, doneCallback) {
+    function apply(target, source, options, doneCallback) {
         var gridX = target.width / 3;
         var gridY = target.height / 3;
 

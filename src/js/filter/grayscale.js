@@ -1,6 +1,6 @@
 Filter.GrayscaleFilter = (function () {
 
-    function apply(target, source, doneCallback) {
+    function apply(target, source, options, doneCallback) {
         var pixelData = target.getContext('2d').getImageData(0, 0, source.width, source.height);
         var d = pixelData.data;
         var r,g,b;

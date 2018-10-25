@@ -49,7 +49,7 @@ body {
     line-height: 1.25em;
     font-family: Helvetica Neue, Helvetica, Arial;
     background: #f9f9f9;
-    color: #555;
+    color: #111;
 }
 
 a {
@@ -93,4 +93,17 @@ h1 {
 p {
     line-height: 1.45em;
     margin-bottom: 20px;
+}
+
+input[type=checkbox],
+input[type=radio]
+{
+    /* Double-sized Checkboxes */
+    transform: scale(3);
+    -ms-transform: scale(3); /* IE */
+    -moz-transform: scale(3); /* FF */
+    -webkit-transform: scale(3); /* Safari and Chrome */
+    -o-transform: scale(3); /* Opera */
+    position: relative;
+    top: -1vw;
 }
