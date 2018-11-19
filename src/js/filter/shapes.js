@@ -104,6 +104,11 @@ Filter.ShapesFilter = (function () {
             numColors = options['numColors'];
         }
 
+        // no changes required
+        if (numColors <= 0) {
+            return;
+        }
+
         var colorThief = new ColorThief();
         var palette = colorThief.getPalette(source, numColors);
         var context = target.getContext('2d');
@@ -148,6 +153,7 @@ Filter.ShapesFilter = (function () {
     }
 })();
 
+Filter.register('shapes_0', Filter.ShapesFilter, { numColors: -1 });
 Filter.register('shapes_1', Filter.ShapesFilter, { numColors: 64 });
 Filter.register('shapes_2', Filter.ShapesFilter, { numColors: 32 });
 Filter.register('shapes_3', Filter.ShapesFilter, { numColors: 16 });
