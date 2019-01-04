@@ -110,7 +110,7 @@ Filter.ShapesFilter = (function () {
         }
 
         var colorThief = new ColorThief();
-        var palette = colorThief.getPalette(source, numColors);
+        var palette = colorThief.getPalette(target, numColors, 1);
         var context = target.getContext('2d');
         var colorData = context.getImageData(0,0,target.width, target.height);
 
