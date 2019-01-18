@@ -7,7 +7,9 @@ var video = document.querySelector('#camera-stream'),
     error_message = document.querySelector('#error-message'),
     isStreamRunning = false,
     target = document.getElementById('stage'),
-    filterId = 0
+    filterId = 0,
+    app = document.querySelector('.app'),
+    header = document.querySelector('header')
 ;
 
 
@@ -59,13 +61,15 @@ play_btn.addEventListener("click", function (e) {
     video.play();
     updatePlayControls();
     filterId = 0;
+    setFullScreen(true);
 });
 
 pause_btn.addEventListener("click", function (e) {
     e.preventDefault();
     isStreamRunning = false;
     video.pause();
-    updatePlayControls()
+    updatePlayControls();
+    setFullScreen(false);
 });
 
 document.addEventListener('menu_open', function (e) { pause_btn.click(); }, false);
@@ -83,6 +87,15 @@ function showVideo() {
     download_photo_btn.classList.remove('disabled');
 }
 
+function setFullScreen(enable) {
+    if (enable) {
+        app.classList.add('fullscreen');
+        header.classList.add('hide');
+    } else {
+        app.classList.remove('fullscreen');
+        header.classList.remove('hide');
+    }
+}
 
 function takeSnapshot() {
     // Here we're using a trick that involves a hidden canvas element.
